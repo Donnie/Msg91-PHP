@@ -1,5 +1,5 @@
 {
-    "name": "donnie/msg91",
+    "name": "donnie/Msg91-PHP",
     "description": "To handle msg91 SMS and OTP",
     "type": "library",
     "authors": [
@@ -10,7 +10,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Donnie\\msg91\\": "src/"
+            "Donnie\\Msg91-PHP\\": "src/"
         }
     },
     "minimum-stability": "dev"
