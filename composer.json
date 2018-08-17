@@ -1,0 +1,17 @@
+{
+    "name": "donnie/msg91",
+    "description": "To handle msg91 SMS and OTP",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Donnie Ashok",
+            "email": "donnie@legalify.in"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Donnie\\msg91\\": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}
