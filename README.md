@@ -30,18 +30,32 @@ PHP Composer package for Msg91. Strictly following PSR standards.
 ```
 use Donnie\Msg91\OTP;
 
-$sms = new OTP(config("msg91.auth"), 'MYBIZ');
+$otp = new OTP(config("msg91.auth"), 'MYBIZ');
+```
 
+### Send OTP
+
+```
 // numbers may or may not have country code
 // country code may or may not have + sign in the beginning
 // numbers may or may not have zero in the beginning
 // in absence of country code
 
-$sms->set('9998888777', 'jimkirk@starfleet.com')->send();
+$otp->set('9998888777', 'jimkirk@starfleet.com')->send();
 // this will send to phone and email
+```
 
+### Resend OTP
+
+```
+// default for second arg is 'voice'
+$otp->resend('9998888777', 'text')->send();
+```
+
+###  Verify OTP
+```
 // to verify add phone and code
-$res = $sms->get('9998888777', '6984')->send();
+$res = $otp->get('9998888777', '6984')->send();
 
 // you can read the outcome from $res->type (error || success)
 ```

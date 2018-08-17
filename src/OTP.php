@@ -6,7 +6,7 @@ namespace Donnie\Msg91;
 * Author: Donnie Ashok
 * Email: hello@donnieashok.in
 * Date: 17-08-2018
-* Description: Msg91 API for sending OTP
+* Description: Msg91 API for OTP
 */
 
 class OTP
@@ -34,9 +34,21 @@ class OTP
 		return $this;
 	}
 
+	public function resend($mobile, $retrytype = 'voice')
+	{
+		$this->url = "https://control.msg91.com/api/retryotp.php";
+		$this->params = [
+			'authkey' => $this->auth,
+			'mobile' => $mobile,
+			'retrytype' => $retrytype
+		];
+
+		return $this;
+	}
+
 	public function get($mobile, $otp)
 	{
-		$this->url = "http://api.msg91.com/api/verifyRequestOTP.php";
+		$this->url = "https://control.msg91.com/api/verifyRequestOTP.php";
 		$this->params = [
 			'authkey' => $this->auth,
 			'mobile' => $mobile,
@@ -61,7 +73,4 @@ class OTP
 		curl_close($ch);
 		return json_decode($result);
 	}
-
-
-
 }
