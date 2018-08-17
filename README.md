@@ -38,4 +38,10 @@ $sms = new OTP(config("msg91.auth"), 'MYBIZ');
 // in absence of country code
 
 $sms->set('9998888777', 'jimkirk@starfleet.com')->send();
+// this will send to phone and email
+
+// to verify add phone and code
+$res = $sms->get('9998888777', '6984')->send();
+
+// you can read the outcome from $res->type (error || success)
 ```

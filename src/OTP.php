@@ -19,16 +19,28 @@ class OTP
 	{
 		$this->auth = $auth;
 		$this->sender = $sender;
-		$this->url = "https://control.msg91.com/api/sendotp.php";
 	}
 
 	public function set($mobile, $email = null)
 	{
+		$this->url = "https://control.msg91.com/api/sendotp.php";
 		$this->params = [
 			'authkey' => $this->auth,
 			'sender' => $this->sender,
 			'mobile' => $mobile,
 			'email' => $email
+		];
+
+		return $this;
+	}
+
+	public function get($mobile, $otp)
+	{
+		$this->url = "http://api.msg91.com/api/verifyRequestOTP.php";
+		$this->params = [
+			'authkey' => $this->auth,
+			'mobile' => $mobile,
+			'otp' => $otp
 		];
 
 		return $this;
