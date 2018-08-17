@@ -10,7 +10,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Donnie\\Msg91-PHP\\": "src/"
+            "Donnie\\Msg91\\": "src/"
         }
     },
     "minimum-stability": "dev"
