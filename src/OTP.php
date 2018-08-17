@@ -18,7 +18,8 @@ class OTP
 	function __construct($auth = null, $sender = "OTPSMS")
 	{
 		$this->auth = $auth;
-		$this->url = "https://control.msg91.com/api/sendotp.php"
+		$this->sender = $sender;
+		$this->url = "https://control.msg91.com/api/sendotp.php";
 	}
 
 	public function set($mobile, $email = null)
