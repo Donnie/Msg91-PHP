@@ -10,7 +10,7 @@ PHP Composer package for Msg91. Strictly following PSR standards.
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://git@github.com/Donnie/Learnyst-PHP"
+            "url": "https://git@github.com/Donnie/Msg91-PHP"
         }
     ]
 ```
