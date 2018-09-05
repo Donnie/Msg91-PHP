@@ -1,5 +1,5 @@
 {
-    "name": "donnie/Msg91-PHP",
+    "name": "donnie/msg91-php",
     "description": "To handle msg91 SMS and OTP",
     "type": "library",
     "authors": [
