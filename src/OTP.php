@@ -21,14 +21,15 @@ class OTP
 		$this->sender = $sender;
 	}
 
-	public function set($mobile, $email = null)
+	public function set($mobile, $email = null, $template = null)
 	{
 		$this->url = "https://control.msg91.com/api/sendotp.php";
 		$this->params = [
 			'authkey' => $this->auth,
 			'sender' => $this->sender,
-			'mobile' => $mobile,
-			'email' => $email
+			'mobile' => $this->formatPhone($mobile),
+			'email' => $email,
+			'template' => $template
 		];
 
 		return $this;
@@ -39,7 +40,7 @@ class OTP
 		$this->url = "https://control.msg91.com/api/retryotp.php";
 		$this->params = [
 			'authkey' => $this->auth,
-			'mobile' => $mobile,
+			'mobile' => $this->formatPhone($mobile),
 			'retrytype' => $retrytype
 		];
 
@@ -51,7 +52,7 @@ class OTP
 		$this->url = "https://control.msg91.com/api/verifyRequestOTP.php";
 		$this->params = [
 			'authkey' => $this->auth,
-			'mobile' => $mobile,
+			'mobile' => $this->formatPhone($mobile),
 			'otp' => $otp
 		];
 
@@ -72,5 +73,18 @@ class OTP
 		// close connection
 		curl_close($ch);
 		return json_decode($result);
+	}
+
+	private function formatPhone($mobile)
+	{
+		if (strlen($mobile) === 10) {
+			$mobile = "91".$mobile
+		}
+		if (strlen($mobile) === 11 && substr($mobile, 0, 1) === "0") {
+			// replace 0 from the beginning of otherwise Indian number
+			$mobile = "91".substr($mobile, 1);
+		}
+
+		return $mobile;
 	}
 }
