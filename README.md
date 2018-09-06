@@ -19,7 +19,7 @@ PHP Composer package for Msg91. Strictly following PSR standards.
 ```
 ,
     "require": {
-        "Donnie/Msg91-PHP": "dev-master"
+        "donnie/msg91-php": "dev-master"
     }
 ```
 
